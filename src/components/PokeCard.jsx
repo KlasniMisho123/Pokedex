@@ -1,5 +1,5 @@
 export function PokeCard() {
     return(
-        <div></div>
+        <div>PokeCard</div>
     )
 }

@@ -1,7 +1,15 @@
-import React from 'react'
+import { first151Pokemon } from "../utils"
 
-export default function SideNav() {
-  return (
-    <nav>SideNav</nav>
+export function SideNav() {
+  return(
+      <nav>
+          {first151Pokemon.map((pokemon, pokemonIndex) => {
+            return(
+              <button>
+                <p>{pokemonIndex + 1} {pokemon} </p>
+              </button>
+            )
+          })}
+      </nav>
   )
 }
