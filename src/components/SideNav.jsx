@@ -1,12 +1,17 @@
-import { first151Pokemon } from "../utils"
+import { first151Pokemon, getFullPokedexNumber } from "../utils"
 
 export function SideNav() {
   return(
       <nav>
+        <div className={"header"}> 
+            <h1 className="text-gradient">Pokedex</h1>
+        </div>
+          <input />
           {first151Pokemon.map((pokemon, pokemonIndex) => {
             return(
-              <button>
-                <p>{pokemonIndex + 1} {pokemon} </p>
+              <button className={'nav-card '}>
+                <p>{getFullPokedexNumber(pokemonIndex)}</p>
+                <p>{pokemon} </p>
               </button>
             )
           })}
