@@ -1,6 +1,6 @@
 import { first151Pokemon, getFullPokedexNumber } from "../utils"
 
-export function SideNav() {
+export default function SideNav() {
   return(
       <nav>
         <div className={"header"}> 
