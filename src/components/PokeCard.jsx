@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react"
+import { getFullPokedexNumber, getPokedexNumber } from "../utils"
 
 export function PokeCard(props) {
     const { selectedPokemon } = props
     const [data, setData] = useState(null)
     const [loading, setLoading] = useState(false)
+
+    const {name, height, abilities, stats, types, moves, sprites } = data || {}
 
     useEffect(()=>{
         // if loading, exit loop
@@ -28,14 +31,14 @@ export function PokeCard(props) {
             setLoading(true)
             try{
                 const baseUrl="https://pokeapi.co/api/v2/"
-                const suffix = 'pokemon/ ' + selectedPokemon
+                const suffix = 'pokemon/' + getPokedexNumber(selectedPokemon)
                 const finalUrl = baseUrl + suffix
                 const res = await fetch(finalUrl)
                 const pokemonData = await res.json()
                 setData(pokemonData)
-
+                console.log("pokemonData: ",pokemonData)
                  cache[selectedPokemon] = pokemonData
-                 localStorage.setItem(JSON.stringify(cache))
+                 localStorage.setItem("pokedex", JSON.stringify(cache))
             } catch(err) {
                 console.log("Fetching PokemonData Err: ",err.message)
             } finally {
@@ -45,8 +48,13 @@ export function PokeCard(props) {
 
         fetchPokemonData()
     }, [selectedPokemon])
-
+    
     return(
-        <div>PokeCard</div>
+        <div className="poke-car">
+            <div>
+                <h4>{getFullPokedexNumber(selectedPokemon)}</h4>
+                <h2></h2>
+            </div>
+        </div>
     )
 }
