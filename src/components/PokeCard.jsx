@@ -24,11 +24,26 @@ export function PokeCard(props) {
         } 
 
         //we oassed all the cache stuff to no avail and now we need to fetcdata.
-        async function fetchPokemon(params) {
-            
+        async function fetchPokemonData() {
+            setLoading(true)
+            try{
+                const baseUrl="https://pokeapi.co/api/v2/"
+                const suffix = 'pokemon/ ' + selectedPokemon
+                const finalUrl = baseUrl + suffix
+                const res = await fetch(finalUrl)
+                const pokemonData = await res.json()
+                setData(pokemonData)
+
+                 cache[selectedPokemon] = pokemonData
+                 localStorage.setItem(JSON.stringify(cache))
+            } catch(err) {
+                console.log("Fetching PokemonData Err: ",err.message)
+            } finally {
+                setLoading(false)
+            }
         }
 
-        // if fetch from api, save in cache
+        fetchPokemonData()
     }, [selectedPokemon])
 
     return(
