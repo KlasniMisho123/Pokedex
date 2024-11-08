@@ -35,10 +35,10 @@ export default function PokeCard(props) {
 
         try {
             setLoadingSkill(true)
-            const res = fetch(moveUrl)
-            const moveData =  res.json()
+            const res = await fetch(moveUrl)
+            const moveData =  await res.json()
             console.log("Fetched move from APi", moveData)
-            const description = moveData?.flavor_text_entries.flter(
+            const description = moveData?.flavor_text_entries.filter(
                 val => {
                     return val.version_group_name = "firered-leafgreen"
                 })[0]?.flavor_text
