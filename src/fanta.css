@@ -617,7 +617,7 @@ details[open] summary {
 }
 
 .button-card {
-    box-shadow: none;
+    box-shadow: 1px 1px;
 }
 
 .button-card:hover {
