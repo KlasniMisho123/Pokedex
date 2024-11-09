@@ -2,3 +2,6 @@ Pokemon Data Api - pokeapi.co
 
 spites onclick - $
 
+skills sorted by alphabet.
+
+skill icons, display
