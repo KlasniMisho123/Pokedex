@@ -7,8 +7,7 @@ import { useState } from 'react'
 
 function App() {
   const [selectedPokemon, setSelectedPokemon] = useState(0)
-  const [showSideMenu, setShowSideMenu] = useState(true) 
-  // this does opposite way (true -> not showing )
+  const [showSideMenu, setShowSideMenu] = useState(true)
 
   function handleToggleMenu() {
     setShowSideMenu(!showSideMenu)
@@ -24,8 +23,8 @@ function App() {
       <SideNav 
       selectedPokemon={selectedPokemon}
       setSelectedPokemon={setSelectedPokemon} 
-      handleToggleMenu={handleToggleMenu} 
-      handleCloseMenu={handleCloseMenu} />
+      handleCloseMenu={handleCloseMenu} 
+      showSideMenu={showSideMenu} />
       <PokeCard selectedPokemon={selectedPokemon} />
     </>
   )

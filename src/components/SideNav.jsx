@@ -38,10 +38,12 @@ export default function SideNav(props) {
            />
           {filteredPokemon.map((pokemon, pokemonIndex) => {
             const truePokedexNumber = first151Pokemon.indexOf(pokemon)
-            handleCloseMenu()
             return(
               <button key={pokemonIndex} className={'nav-card ' + (pokemonIndex === selectedPokemon ? 'nav-card-selected ': " ")} 
-               onClick={()=>{setSelectedPokemon(truePokedexNumber)}}>
+               onClick={()=>{
+                setSelectedPokemon(truePokedexNumber)
+                handleCloseMenu()
+                }}>
                 <p>{getFullPokedexNumber(truePokedexNumber)}</p>
                 <p>{pokemon} </p>
               </button>
