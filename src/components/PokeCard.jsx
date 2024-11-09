@@ -108,7 +108,7 @@ export default function PokeCard(props) {
     }
 
     return(
-        <div className="poke-car">
+        <div className="poke-card">
             {skill && (
                 <Modal handleCloseModal={() => { setSkill(null) }}>
                 <div>
