@@ -13,8 +13,10 @@ export default function SideNav(props) {
 
     // if pokemon name includes current search value,
     // return true
+    if(ele.includes(searchValue)) { return true}
 
     //otherise, exclude value from array
+    return false
     
   })
   
@@ -30,7 +32,7 @@ export default function SideNav(props) {
             setSearchValue(e.target.value)
            }}
            />
-          {first151Pokemon.map((pokemon, pokemonIndex) => {
+          {filteredPokemon.map((pokemon, pokemonIndex) => {
             return(
               <button key={pokemonIndex} className={'nav-card ' + (pokemonIndex === selectedPokemon ? 'nav-card-selected ': " ")} 
                onClick={()=>{setSelectedPokemon(pokemonIndex)}}
