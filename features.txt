@@ -5,3 +5,5 @@ spites onclick - $
 skills sorted by alphabet.
 
 skill icons, display
+
+showSideMenu (true -> not showing ) //opposite way
